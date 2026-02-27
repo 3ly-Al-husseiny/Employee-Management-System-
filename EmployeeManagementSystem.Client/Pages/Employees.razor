@@ -1,0 +1,66 @@
+@page "/employees"
+@using EmployeeManagementSystem.Client.Services
+@using EmployeeManagementSystem.Client.Services.Abstractions
+@using EmployeeManagementSystem.Core
+@inject IEmployeeService employeeService
+<h3>Employees</h3>
+
+
+<!-- Search Bar -->
+<input @bind="searchQuery" placeholder="Search..." />
+<button class="btn btn-primary" @onclick="SearchEmployees">Search</button>
+
+
+@if(employees is null || employees.Count == 0)
+{
+    <p>No employees found.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var employee in employees)
+            {
+                <tr>
+                    <td>@employee.Name</td>
+                    <td>@employee.Email</td>
+                    <td>@employee.Department</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning me-2">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private List<Employee> employees;
+    private string searchQuery = string.Empty;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        employees = await employeeService.GetAllEmployeesAsync();
+    }
+
+    private async Task SearchEmployees()
+    {
+        if (string.IsNullOrWhiteSpace(searchQuery))
+            employees = await employeeService.GetAllEmployeesAsync();
+        else
+            employees = await employeeService.SearchEmployeesAsync(searchQuery);
+    }
+
+}
+
+
