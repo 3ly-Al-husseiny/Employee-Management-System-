@@ -1,4 +1,6 @@
 using EmployeeManagementSystem.Server.Data.DbContexts;
+using EmployeeManagementSystem.Server.Services;
+using EmployeeManagementSystem.Server.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagementSystem.Server;
@@ -15,9 +17,21 @@ public class Program
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
 
+        builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+
         builder.Services.AddDbContext<AppDbContext>(options =>
         {
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+        });
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", policy =>
+            {
+                policy.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            });
         });
 
         var app = builder.Build();
@@ -28,13 +42,10 @@ public class Program
             app.MapOpenApi();
         }
 
+        app.UseCors("AllowAll");
         app.UseHttpsRedirection();
-
         app.UseAuthorization();
-
-
         app.MapControllers();
-
         app.Run();
     }
 }

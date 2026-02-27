@@ -19,9 +19,4 @@
       <ProjectReference Include="..\EmployeeManagementSystem.Core\EmployeeManagementSystem.Core.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Services.Abstractions\" />
-      <Folder Include="Services\" />
-    </ItemGroup>
-
 </Project>
