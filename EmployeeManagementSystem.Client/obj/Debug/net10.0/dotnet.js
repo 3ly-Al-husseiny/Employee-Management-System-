@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "EmployeeManagementSystem.Client",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-Q3zWCiYIJCa1HEZIxACq6TOHNbE2NjnDlw1uUVFSj2s=",
+    "hash": "sha256-BVAPHbiSsn9ALrms/Ti0sGJEl5OeapNlGPz1wOQBuu8=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.cs8mcre4gh.js"
@@ -1038,16 +1038,26 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
         "integrity": "sha256-lgUuHy5ZKKRbgYfoW8t1tWMzuTpZuIcjJroQScqry7w="
       },
       {
+        "virtualPath": "EmployeeManagementSystem.Core.wasm",
+        "name": "EmployeeManagementSystem.Core.y8zzdwmmek.wasm",
+        "integrity": "sha256-MipuwHOFGy8sddbH5IBkxclvJSx3pr25CtV3zS+JUSI="
+      },
+      {
         "virtualPath": "EmployeeManagementSystem.Client.wasm",
-        "name": "EmployeeManagementSystem.Client.q8oe32zw5w.wasm",
-        "integrity": "sha256-xjIXKAQnll64WX7Tgh3xIsBUxjdeBaTDav3VqyJPSYA="
+        "name": "EmployeeManagementSystem.Client.hcutd4i775.wasm",
+        "integrity": "sha256-HyTVt1nXCz261yeBuEAJ/ZXVcrqG0LyDFDdQ0H4a6QA="
       }
     ],
     "pdb": [
       {
+        "virtualPath": "EmployeeManagementSystem.Core.pdb",
+        "name": "EmployeeManagementSystem.Core.1ic13hafrt.pdb",
+        "integrity": "sha256-iRze/volKB89GRsjwFyriyfpenNUKd8I4PsGpgDJmw4="
+      },
+      {
         "virtualPath": "EmployeeManagementSystem.Client.pdb",
-        "name": "EmployeeManagementSystem.Client.t9fv0xrbh9.pdb",
-        "integrity": "sha256-7wwyP5ZpOKa13JayOFPWIG/zoAxpYQq5xYDgiKmPcj4="
+        "name": "EmployeeManagementSystem.Client.2rkl5kh34w.pdb",
+        "integrity": "sha256-TiFTAeiUd1kRvXjd+aWpYSOY8fFIIBv+PsF5jZXJs4Y="
       }
     ],
     "libraryInitializers": [
