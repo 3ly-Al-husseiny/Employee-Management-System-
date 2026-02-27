@@ -1,0 +1,11 @@
+/home/ali/Software Engineering/Server-Side Development/ASP.NET/Employee Management System/EmployeeManagementSystem.Core/bin/Debug/net10.0/EmployeeManagementSystem.Core.deps.json
+/home/ali/Software Engineering/Server-Side Development/ASP.NET/Employee Management System/EmployeeManagementSystem.Core/bin/Debug/net10.0/EmployeeManagementSystem.Core.dll
+/home/ali/Software Engineering/Server-Side Development/ASP.NET/Employee Management System/EmployeeManagementSystem.Core/bin/Debug/net10.0/EmployeeManagementSystem.Core.pdb
+/home/ali/Software Engineering/Server-Side Development/ASP.NET/Employee Management System/EmployeeManagementSystem.Core/obj/Debug/net10.0/EmployeeManagementSystem.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/ali/Software Engineering/Server-Side Development/ASP.NET/Employee Management System/EmployeeManagementSystem.Core/obj/Debug/net10.0/EmployeeManagementSystem.Core.AssemblyInfoInputs.cache
+/home/ali/Software Engineering/Server-Side Development/ASP.NET/Employee Management System/EmployeeManagementSystem.Core/obj/Debug/net10.0/EmployeeManagementSystem.Core.AssemblyInfo.cs
+/home/ali/Software Engineering/Server-Side Development/ASP.NET/Employee Management System/EmployeeManagementSystem.Core/obj/Debug/net10.0/EmployeeManagementSystem.Core.csproj.CoreCompileInputs.cache
+/home/ali/Software Engineering/Server-Side Development/ASP.NET/Employee Management System/EmployeeManagementSystem.Core/obj/Debug/net10.0/EmployeeManagementSystem.Core.dll
+/home/ali/Software Engineering/Server-Side Development/ASP.NET/Employee Management System/EmployeeManagementSystem.Core/obj/Debug/net10.0/refint/EmployeeManagementSystem.Core.dll
+/home/ali/Software Engineering/Server-Side Development/ASP.NET/Employee Management System/EmployeeManagementSystem.Core/obj/Debug/net10.0/EmployeeManagementSystem.Core.pdb
+/home/ali/Software Engineering/Server-Side Development/ASP.NET/Employee Management System/EmployeeManagementSystem.Core/obj/Debug/net10.0/ref/EmployeeManagementSystem.Core.dll
