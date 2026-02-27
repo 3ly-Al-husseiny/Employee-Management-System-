@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "EmployeeManagementSystem.Client",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-b6cil+qqdvUyZFh0NPamf19BwENk7lRlGMYf0y8idIA=",
+    "hash": "sha256-iClMKtW0dTweZr/ctzX8RpLdWVipUmvnuI7O/W3vLoo=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.cs8mcre4gh.js"
@@ -1039,25 +1039,25 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       },
       {
         "virtualPath": "EmployeeManagementSystem.Core.wasm",
-        "name": "EmployeeManagementSystem.Core.xeulstg3ln.wasm",
-        "integrity": "sha256-x4JRFiXzRI/13uef0WjVz/N+D+n3LinGZ6cs9hhvVdw="
+        "name": "EmployeeManagementSystem.Core.g91ufk2zcy.wasm",
+        "integrity": "sha256-HH9wKcZlDyCN0SxkugTsV9riQxGw8jKYSgb5ZCGNxPI="
       },
       {
         "virtualPath": "EmployeeManagementSystem.Client.wasm",
-        "name": "EmployeeManagementSystem.Client.zhj0y0cha5.wasm",
-        "integrity": "sha256-STuT092HXUzZmfAD9yr6q8Byor9QF1bdToOp/R78Bpg="
+        "name": "EmployeeManagementSystem.Client.mkph9jigl4.wasm",
+        "integrity": "sha256-Sm8a2ytQ3GKYGPtxGSNqlIVQ2ATlOgYqRzR/y567X+I="
       }
     ],
     "pdb": [
       {
         "virtualPath": "EmployeeManagementSystem.Core.pdb",
-        "name": "EmployeeManagementSystem.Core.q9hqy4ernt.pdb",
-        "integrity": "sha256-EpSs2psjQhr6i6FgyR1PaK1OZJ+u73lhnYkbdxz/wGc="
+        "name": "EmployeeManagementSystem.Core.42n81vq18o.pdb",
+        "integrity": "sha256-RHx4D2aZI1rr0OfFYP1WCKURqQyYBspSCHNryT043gs="
       },
       {
         "virtualPath": "EmployeeManagementSystem.Client.pdb",
-        "name": "EmployeeManagementSystem.Client.1ronh2bhy8.pdb",
-        "integrity": "sha256-DcaDL2BArXd1XGWhtumi6gHMM34zgsrdgqTqkn7EFgM="
+        "name": "EmployeeManagementSystem.Client.mhmppasqmh.pdb",
+        "integrity": "sha256-5mBwpuSY9PbvFFCAqtzcCHGIL01dBtvDGLD7/5qcTCY="
       }
     ],
     "libraryInitializers": [

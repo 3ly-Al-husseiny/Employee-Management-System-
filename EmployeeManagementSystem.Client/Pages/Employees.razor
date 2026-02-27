@@ -7,11 +7,46 @@
 
 
 <!-- Search Bar -->
-<input @bind="searchQuery" placeholder="Search..." />
+<input @bind="searchQuery" placeholder="Search..."/>
 <button class="btn btn-primary" @onclick="SearchEmployees">Search</button>
+<hr/>
+
+<!-- Form for Add/Edit -->
+
+<EditForm Model="currentEmployee" OnValidSubmit="SaveEmployee">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+
+    <div class="form-group">
+        <label>Name:</label>
+        <InputText class="form-control" @bind-Value="currentEmployee.Name"/>
+    </div>
+
+    <div class="form-group">
+        <label>Email:</label>
+        <InputText class="form-control" @bind-Value="currentEmployee.Email"/>
+    </div>
+
+    <div class="form-group">
+        <label>Department:</label>
+        <InputText class="form-control" @bind-Value="currentEmployee.Department"/>
+    </div>
+
+    <div class="form-group">
+        <label>Date of Hiring:</label>
+        <InputDate class="form-control" @bind-Value="currentEmployee.DateOfHiring"/>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">@(currentEmployee.Id == 0 ? "Add" : "Update")</button>
+    @if (currentEmployee.Id != 0)
+    {
+        <button type="button" class="btn btn-secondary ms-2" @onclick="CancelEdit">Cancel</button>
+    }
+
+</EditForm>
 
 
-@if(employees is null || employees.Count == 0)
+@if (employees is null || employees.Count == 0)
 {
     <p>No employees found.</p>
 }
@@ -19,26 +54,28 @@ else
 {
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Department</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
-            @foreach(var employee in employees)
-            {
-                <tr>
-                    <td>@employee.Name</td>
-                    <td>@employee.Email</td>
-                    <td>@employee.Department</td>
-                    <td>
-                        <button class="btn btn-sm btn-warning me-2">Edit</button>
-                        <button class="btn btn-sm btn-danger">Delete</button>
-                    </td>
-                </tr>
-            }
+        @foreach (var employee in employees)
+        {
+            <tr>
+                <td>@employee.Name</td>
+                <td>@employee.Email</td>
+                <td>@employee.Department</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2" @onclick="() => LoadForEdit(employee)">
+                        Edit
+                    </button>
+                    <button class="btn btn-sm btn-danger" @onclick="() => DeleteEmployee(employee.Id)">Delete</button>
+                </td>
+            </tr>
+        }
         </tbody>
     </table>
 }
@@ -47,7 +84,8 @@ else
 @code {
     private List<Employee> employees;
     private string searchQuery = string.Empty;
-    
+    private Employee currentEmployee = new Employee { DateOfHiring = DateTime.Today };
+
     protected override async Task OnInitializedAsync()
     {
         employees = await employeeService.GetAllEmployeesAsync();
@@ -60,6 +98,46 @@ else
         else
             employees = await employeeService.SearchEmployeesAsync(searchQuery);
     }
+    
+
+    private async Task DeleteEmployee(int employeeId)
+    {
+        await employeeService.DeleteEmployeeAsync(employeeId);
+        await SearchEmployees();
+    }
+
+    private async Task SaveEmployee()
+    {
+        if (currentEmployee.Id == 0)
+        {
+            await employeeService.CreateEmployeeAsync(currentEmployee);
+        }
+        else
+        {
+            await employeeService.UpdateEmployeeAsync(currentEmployee.Id, currentEmployee);
+        }
+
+        currentEmployee = new Employee { DateOfHiring = DateTime.Today };
+        employees = await employeeService.GetAllEmployeesAsync();
+    }
+    
+    private void LoadForEdit(Employee employee)
+    {
+        currentEmployee = new Employee
+        {
+            Id = employee.Id,
+            Name = employee.Name,
+            Email = employee.Email,
+            Department = employee.Department,
+            DateOfHiring = employee.DateOfHiring
+        };
+    }
+    
+    private void CancelEdit()
+    {
+        currentEmployee = new Employee { DateOfHiring = DateTime.Today };
+    }
+
 
 }
 

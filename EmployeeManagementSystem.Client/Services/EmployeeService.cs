@@ -20,10 +20,8 @@ public class EmployeeService(HttpClient _httpClient) : IEmployeeService
 
     public async Task<Employee> CreateEmployeeAsync(Employee employee)
     {
-        var response = await _httpClient.PostAsJsonAsync("api/employees", employee);
-        response.EnsureSuccessStatusCode();
-        return await response.Content.ReadFromJsonAsync<Employee>() ??
-               throw new Exception("Failed to create employee.");
+        await _httpClient.PostAsJsonAsync("api/employees", employee);
+        return employee;
     }
 
     public async Task<bool> UpdateEmployeeAsync(int id, Employee employee)
