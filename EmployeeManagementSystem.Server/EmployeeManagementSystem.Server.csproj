@@ -16,11 +16,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
+      <ProjectReference Include="..\EmployeeManagementSystem.Core\EmployeeManagementSystem.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\EmployeeManagementSystem.Core\EmployeeManagementSystem.Core.csproj" />
+      <Folder Include="Services.Abstractions\" />
+      <Folder Include="Services\" />
     </ItemGroup>
 
 </Project>
