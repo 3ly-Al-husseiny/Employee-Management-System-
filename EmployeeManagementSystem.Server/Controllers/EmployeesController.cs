@@ -42,7 +42,7 @@ public class EmployeesController(IEmployeeService employeeService) : Controller
     public async Task<IActionResult> CreateEmployeeAsync(Employee employee)
     {
         var createdEmployee = await employeeService.CreateEmployeeAsync(employee);
-        return CreatedAtAction(nameof(GetEmployeeAsync), new { id = createdEmployee.Id }, createdEmployee);
+        return Ok(createdEmployee);
     }
 
     [HttpPut("{id}")]

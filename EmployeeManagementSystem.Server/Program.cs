@@ -7,7 +7,7 @@ namespace EmployeeManagementSystem.Server;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +18,7 @@ public class Program
         builder.Services.AddOpenApi();
 
         builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+        builder.Services.AddScoped<IDataSeeder, DataSeeder>();
 
         builder.Services.AddDbContext<AppDbContext>(options =>
         {
@@ -36,6 +37,13 @@ public class Program
 
         var app = builder.Build();
 
+        // Seed data
+        using (var scope = app.Services.CreateScope())
+        {
+            var seeder = scope.ServiceProvider.GetRequiredService<IDataSeeder>();
+            await seeder.SeedDataAsync();
+        }
+
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
@@ -46,6 +54,6 @@ public class Program
         app.UseHttpsRedirection();
         app.UseAuthorization();
         app.MapControllers();
-        app.Run();
+        await app.RunAsync();
     }
 }
